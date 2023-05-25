@@ -1,0 +1,15 @@
+D:\Documents\Tasks\TestTask\TestTask\bin\Release\net6.0\TestTask.exe
+D:\Documents\Tasks\TestTask\TestTask\bin\Release\net6.0\TestTask.deps.json
+D:\Documents\Tasks\TestTask\TestTask\bin\Release\net6.0\TestTask.runtimeconfig.json
+D:\Documents\Tasks\TestTask\TestTask\bin\Release\net6.0\TestTask.dll
+D:\Documents\Tasks\TestTask\TestTask\bin\Release\net6.0\TestTask.pdb
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.csproj.AssemblyReference.cache
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.AssemblyInfoInputs.cache
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.AssemblyInfo.cs
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.csproj.CoreCompileInputs.cache
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.dll
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\refint\TestTask.dll
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.pdb
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\TestTask.genruntimeconfig.cache
+D:\Documents\Tasks\TestTask\TestTask\obj\Release\net6.0\ref\TestTask.dll
