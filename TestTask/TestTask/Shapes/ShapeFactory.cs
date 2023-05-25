@@ -20,19 +20,19 @@ namespace TestTask.Shapes
             switch (shapeType)
             {
                 case ShapeType.Rectangle:
-                    createdShape = ConsoleUtils.ReadRectangle();
+                    createdShape = ConsoleUtils.ReadRectangle("Введите ширину прямоуголника: ", "Введите высоту прямоуголника: ");
                     break;
                 
                 case ShapeType.Square:
-                    createdShape = ConsoleUtils.ReadSquare();
+                    createdShape = ConsoleUtils.ReadSquare("Введите длину стороны квадрата: ");
                     break;
                 
                 case ShapeType.Circle:
-                    createdShape = ConsoleUtils.ReadCircle();
+                    createdShape = ConsoleUtils.ReadCircle("Введите радиус круга: ");
                     break;
                 
                 case ShapeType.Rhombus:
-                    createdShape = ConsoleUtils.ReadRhombus();
+                    createdShape = ConsoleUtils.ReadRhombus("Введите длину стороны ромба: ", "Введите высоту ромба: ");
                     break;
                 
                 default:

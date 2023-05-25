@@ -1,38 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace TestTask
+﻿namespace TestTask
 {
     public class ContactDirectory
     {
-        private Dictionary<FullName, string> _contacts = new Dictionary<FullName, string>();
-        
-        public bool AddContact(FullName fullName, string phoneNumber)
+        private Dictionary<int, Tuple<string, string>> _contacts = new Dictionary<int, Tuple<string, string>>();
+
+        private const int HashConstant = 13;
+
+        private static int GetFullNameHash(string fullName)
         {
-            return _contacts.TryAdd(fullName, phoneNumber);
+            int hashCode = 0;
+
+            for (int i = 0; i < fullName.Length; i++)
+            {
+                hashCode += fullName[i] * (int)Math.Pow(HashConstant, i);
+            }
+
+            return hashCode;
         }
 
-        public bool RemoveContact(FullName fullName)
+        public bool AddContact(string fullName, string phoneNumber)
         {
-            return _contacts.Remove(fullName);
-        }
-        
-        public string GetPhoneNumber(FullName fullName)
-        {
-            _contacts.TryGetValue(fullName, out string phoneNumber);
-            return phoneNumber;
+            return _contacts.TryAdd(GetFullNameHash(fullName), new Tuple<string, string>(fullName, phoneNumber));
         }
 
-        public bool RewritePhoneNumber(FullName fullName, string phoneNumber)
+        public bool RemoveContact(string fullName)
+        {
+            return _contacts.Remove(GetFullNameHash(fullName));
+        }
+        
+        public string GetPhoneNumber(string fullName)
+        {
+            _contacts.TryGetValue(GetFullNameHash(fullName), out Tuple<string, string> contactData);
+
+            return contactData != null ? contactData.Item2 : null;
+        }
+
+        public bool RewritePhoneNumber(string fullName, string phoneNumber)
         {
             if (phoneNumber == null)
             {
                 throw new ArgumentNullException(nameof(phoneNumber));
             }
 
-            if (_contacts.ContainsKey(fullName))
+            int fullNameHash = GetFullNameHash(fullName);
+            
+            if (_contacts.ContainsKey(fullNameHash))
             {
-                _contacts[fullName] = phoneNumber;
+                _contacts[fullNameHash] = new Tuple<string, string>(fullName, phoneNumber);
                 return true;
             }
             else

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Documents\\GitReposes\\TestTaskA\\TestTask\\TestTask\\TestTask.csproj": {}
+    "D:\\Documents\\GitReposes\\TestTaskB\\TestTask\\TestTask\\TestTask.csproj": {}
   },
   "projects": {
-    "D:\\Documents\\GitReposes\\TestTaskA\\TestTask\\TestTask\\TestTask.csproj": {
+    "D:\\Documents\\GitReposes\\TestTaskB\\TestTask\\TestTask\\TestTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Documents\\GitReposes\\TestTaskA\\TestTask\\TestTask\\TestTask.csproj",
+        "projectUniqueName": "D:\\Documents\\GitReposes\\TestTaskB\\TestTask\\TestTask\\TestTask.csproj",
         "projectName": "TestTask",
-        "projectPath": "D:\\Documents\\GitReposes\\TestTaskA\\TestTask\\TestTask\\TestTask.csproj",
+        "projectPath": "D:\\Documents\\GitReposes\\TestTaskB\\TestTask\\TestTask\\TestTask.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\Documents\\GitReposes\\TestTaskA\\TestTask\\TestTask\\obj\\",
+        "outputPath": "D:\\Documents\\GitReposes\\TestTaskB\\TestTask\\TestTask\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",

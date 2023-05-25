@@ -6,19 +6,19 @@ namespace TestTask
     {
         private const string IncorrectInputMessage = "Некорректный ввод";
 
-        public static Matrix ReadMatrix()
+        public static Matrix ReadMatrix(string inputDimensionsMsg, string inputStringsMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             while (true)
             {
                 try
                 {
-                    Console.WriteLine("\nВведите размеры матрицы: сначала строки, затем столбцы. Пример: 3x4");
+                    Console.WriteLine($"\n{inputDimensionsMsg}");
                     
                     int[] dimensions = Console.ReadLine().Split('x', ' ').Select(int.Parse).ToArray();
 
                     float[,] sourceArray = new float[dimensions[0], dimensions[1]];
 
-                    Console.WriteLine("Введите последовательно каждую строку матрицы. Пример строки: 1 -5 30 8");
+                    Console.WriteLine(inputStringsMsg);
             
                     for (int i = 0; i < sourceArray.GetLength(0); i++)
                     {
@@ -34,63 +34,55 @@ namespace TestTask
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(IncorrectInputMessage);
+                    Console.WriteLine(incorrectInputMsg);
                 }
             }
             
         }
 
-        public static FullName ReadFullName()
+        public static Tuple<string, string> ReadContact(string inputFullNameMsg, string inputNumberMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             try
             {
-                Console.WriteLine("\nВведите фамилию: ");
-                string? surname = Console.ReadLine();
-
-                Console.WriteLine("Введите имя: ");
-                string? name = Console.ReadLine();
-            
-                Console.WriteLine("Введите отчество: ");
-                string? patronymic = Console.ReadLine();
+                string fullName = ReadFullName(inputFullNameMsg, incorrectInputMsg);
                 
-                return new FullName(surname, name, patronymic);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(IncorrectInputMessage);
-            }
-            
-            return null;
-        }
-        
-        public static KeyValuePair<FullName, string> ReadContact()
-        {
-            try
-            {
-                FullName fullName = ReadFullName();
-                
-                Console.WriteLine("Введите номер телефона: ");
+                Console.WriteLine(inputNumberMsg);
                 string? phoneNumber = Console.ReadLine();
 
                 Console.WriteLine();
-                return new KeyValuePair<FullName, string>(fullName, phoneNumber);
+                return new Tuple<string, string>(fullName, phoneNumber);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(IncorrectInputMessage);
+                Console.WriteLine(incorrectInputMsg);
             }
 
-            return default;
+            return null;
         }
 
-        public static Rectangle ReadRectangle()
+        public static string ReadFullName(string inputFullNameMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             try
             {
-                Console.WriteLine("\nВведите ширину прямоуголника: ");
+                Console.WriteLine(inputFullNameMsg);
+                return Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(incorrectInputMsg);
+            }
+
+            return null;
+        }
+
+        public static Rectangle ReadRectangle(string inputWidthMsg, string inputHeightMsg, string incorrectInputMsg = IncorrectInputMessage)
+        {
+            try
+            {
+                Console.WriteLine($"\n{inputWidthMsg}");
                 float sideA = float.Parse(Console.ReadLine());
 
-                Console.WriteLine("Введите высоту прямоуголника: ");
+                Console.WriteLine(inputHeightMsg);
                 float sideB = float.Parse(Console.ReadLine());
                 Console.WriteLine();
                 
@@ -98,59 +90,59 @@ namespace TestTask
             }
             catch (Exception ex)
             {
-                Console.WriteLine(IncorrectInputMessage);
+                Console.WriteLine(incorrectInputMsg);
             }
 
             return null;
         }
 
-        public static Square ReadSquare()
+        public static Square ReadSquare(string inputSideMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             try
             {
-                Console.WriteLine("\nВведите длину стороны квадрата: ");
+                Console.WriteLine($"\n{inputSideMsg}");
                 float side = float.Parse(Console.ReadLine());
                 return new Square(side);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(IncorrectInputMessage);
+                Console.WriteLine(incorrectInputMsg);
             }
 
             return null;
         }
         
-        public static Circle ReadCircle()
+        public static Circle ReadCircle(string inputRadiusMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             try
             {
-                Console.WriteLine("\nВведите радиус круга: ");
+                Console.WriteLine($"\n{inputRadiusMsg}");
                 float radius = float.Parse(Console.ReadLine());
                 return new Circle(radius);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(IncorrectInputMessage);
+                Console.WriteLine(incorrectInputMsg);
             }
 
             return null;
         }
         
-        public static Rhombus ReadRhombus()
+        public static Rhombus ReadRhombus(string inputSideMsg, string inputHeightMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             try
             {
-                Console.WriteLine("\nВведите длину стороны ромба: ");
+                Console.WriteLine($"\n{inputSideMsg}");
                 float side = float.Parse(Console.ReadLine());
                 
-                Console.WriteLine("Введите высоту ромба: ");
+                Console.WriteLine(inputHeightMsg);
                 float height = float.Parse(Console.ReadLine());
                 
                 return new Rhombus(side, height);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(IncorrectInputMessage);
+                Console.WriteLine(incorrectInputMsg);
             }
 
             return null;

@@ -35,7 +35,10 @@ namespace TestTask
 
         private static void LaunchMatrixTask()
         {
-            Matrix matrix = ConsoleUtils.ReadMatrix();
+            Matrix matrix = ConsoleUtils.ReadMatrix(
+                "Введите размеры матрицы: сначала строки, затем столбцы. Пример: 3x4",
+                "Введите последовательно каждую строку матрицы. Пример строки: 1 -5 30 8");
+            
             Console.WriteLine("Сумма чисел главной диагонали: " + matrix.GetMainDiagonalSum());
             Console.WriteLine("Сумма чисел, кратных 3: " + matrix.GetSumOfMultiples(3));
         }
@@ -68,6 +71,8 @@ namespace TestTask
             bool needToExit = false;
             string msgBuffer;
             
+            const string inputFullNameMessage = "Введите ФИО: ";
+            
             while (!needToExit)
             {
                 Console.WriteLine("\nНажмите соостветствующую клавишу:\n" +
@@ -81,8 +86,8 @@ namespace TestTask
                 {
                     case '1':
                         
-                        var newContact = ConsoleUtils.ReadContact();
-                        msgBuffer = contactDirectory.AddContact(newContact.Key, newContact.Value)
+                        var newContact = ConsoleUtils.ReadContact(inputFullNameMessage,"Введите номер телефона: ");
+                        msgBuffer = contactDirectory.AddContact(newContact.Item1, newContact.Item2)
                             ? "Контакт добавлен"
                             : "Данный контакт уже существует";
                         
@@ -91,7 +96,7 @@ namespace TestTask
                     
                     case '2':
                         
-                        var removableFullName = ConsoleUtils.ReadFullName();
+                        var removableFullName = ConsoleUtils.ReadFullName(inputFullNameMessage);
                         msgBuffer = contactDirectory.RemoveContact(removableFullName)
                             ? "\nКонтакт удалён"
                             : "\nДанного контакта не существует";
@@ -101,7 +106,7 @@ namespace TestTask
                     
                     case '3':
                         
-                        var editableFullName = ConsoleUtils.ReadFullName();
+                        var editableFullName = ConsoleUtils.ReadFullName(inputFullNameMessage);
                         string oldPhoneNumber = contactDirectory.GetPhoneNumber(editableFullName);
                         
                         if (oldPhoneNumber != null)
@@ -126,7 +131,7 @@ namespace TestTask
                 
                     case '4': 
                     
-                        var desiredFullName = ConsoleUtils.ReadFullName();
+                        var desiredFullName = ConsoleUtils.ReadFullName(inputFullNameMessage);
                         string phoneNumber = contactDirectory.GetPhoneNumber(desiredFullName);
 
                         msgBuffer = phoneNumber != null
