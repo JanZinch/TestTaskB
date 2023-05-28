@@ -87,7 +87,7 @@ namespace TestTask
                     case '1':
                         
                         var newContact = ConsoleUtils.ReadContact(inputFullNameMessage,"Введите номер телефона: ");
-                        msgBuffer = contactDirectory.AddContact(newContact.Item1, newContact.Item2)
+                        msgBuffer = contactDirectory.AddContact(newContact)
                             ? "Контакт добавлен"
                             : "Данный контакт уже существует";
                         

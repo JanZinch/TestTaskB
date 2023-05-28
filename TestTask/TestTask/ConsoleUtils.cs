@@ -40,7 +40,7 @@ namespace TestTask
             
         }
 
-        public static Tuple<string, string> ReadContact(string inputFullNameMsg, string inputNumberMsg, string incorrectInputMsg = IncorrectInputMessage)
+        public static Contact ReadContact(string inputFullNameMsg, string inputNumberMsg, string incorrectInputMsg = IncorrectInputMessage)
         {
             try
             {
@@ -50,14 +50,14 @@ namespace TestTask
                 string? phoneNumber = Console.ReadLine();
 
                 Console.WriteLine();
-                return new Tuple<string, string>(fullName, phoneNumber);
+                return new Contact(fullName, phoneNumber);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(incorrectInputMsg);
             }
 
-            return null;
+            return default;
         }
 
         public static string ReadFullName(string inputFullNameMsg, string incorrectInputMsg = IncorrectInputMessage)
